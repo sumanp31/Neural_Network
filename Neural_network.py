@@ -54,6 +54,9 @@ for i in range(10):
 	z1, a1, z2, y_pred = forward(x, w1, w2)
 	err = y - y_pred
 	w1, w2 = backward(err, z1, z2, a1, w1, w2)
+	z1, a1, z2, y_test = forward([0,1,1], w1, w2)
+	if (abs(1-y_test) < 0.00001):
+		break
 
 
 z1, a1, z2, y_test = forward([0,1,1], w1, w2)
